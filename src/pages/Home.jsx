@@ -10,6 +10,8 @@ import { Container, Row, Col  } from "react-bootstrap";
 import heroImg from "../assets/images/hero-img.png";
 import { Link } from "react-router-dom";
 
+import Services from "../services/Services";
+
 const Home = () => {
 
     const year = new Date().getFullYear()
@@ -37,6 +39,8 @@ const Home = () => {
                 </Row>
             </Container>
         </section>
+
+        <Services />
     </Helmet>
 }
 
