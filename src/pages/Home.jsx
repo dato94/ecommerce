@@ -1,9 +1,14 @@
 import React from "react";
 
+
+import { motion } from "framer-motion";
+
 import Helmet from "../components/Helmet/Helmet";
+import "../styles/home.css";
 
 import { Container, Row, Col  } from "react-bootstrap";
 import heroImg from "../assets/images/hero-img.png";
+import { Link } from "react-router-dom";
 
 const Home = () => {
 
@@ -18,9 +23,9 @@ const Home = () => {
                             <h2>Make Your Interior Minimalistic 6 Modern</h2>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi mollitia quaerat, illo distinctio possimus inventore autem perferendis fugit officiis. Quidem!</p>
 
-                            <button className="buy__btn">
-                                SHOP NOW
-                            </button>
+                            <motion.button whileTap={{scale: 1.2}} className="buy__btn">
+                                <Link to='/shop'>SHOP NOW</Link>
+                            </motion.button>
                         </div>
                     </Col>
 
