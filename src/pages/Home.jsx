@@ -18,13 +18,19 @@ import ProductsList from "../components/UI/ProductsList";
 const Home = () => {
 
 
-    const [data, setData] = useState(products)
+    const [trendingProducts, setTrendingProducts] = useState([])
+    const [bestSalesProducts, setBestSalesProducts] = useState([])
+
     const year = new Date().getFullYear()
 
     useEffect(() => {
-        const filteredProducts = products.filter(item => item.category === "chair");
+        const filteredTrendingProducts = products.filter((item) => item.category === "chair");
 
-        setData(filteredProducts);
+        const filteredBestSalesProducts = products.filter((item) => item.category === "sofa");
+
+        
+        setTrendingProducts(filteredTrendingProducts);
+        setBestSalesProducts(filteredBestSalesProducts);
     }, []);
 
     return <Helmet title={"home"} >
@@ -60,10 +66,23 @@ const Home = () => {
                     <Col lg='12' className="text-center">
                         <h2 className="section__title">Trending Products</h2>
                     </Col>
-                    <ProductsList data={data} />
+                    <ProductsList data={trendingProducts} />
                 </Row>
             </Container>
         </section>
+
+        <section className="best__sales">
+            <Container>
+            <Row>
+                    <Col lg='12' className="text-center">
+                        <h2 className="section__title">Best Sales</h2>
+                    </Col>
+
+                    <ProductsList data={bestSalesProducts} />
+                </Row>
+            </Container>
+        </section>
+
     </Helmet>
 }
 
