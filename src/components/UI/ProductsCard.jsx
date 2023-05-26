@@ -4,6 +4,8 @@ import "../../styles/product-card.css";
 import { Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+import { useDispatch } from 'react-redux';
+
 const ProductsCard = ({item}) => {
   return (
     <Col lg='3' md='4' className='mb-2'>
