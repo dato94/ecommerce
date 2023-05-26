@@ -8,6 +8,7 @@ import logo from "../../assets/images/eco-logo.png";
 import userIcon from "../../assets/images/user-icon.png";
 
 import { Container, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const nav__links = [
     {
@@ -27,6 +28,7 @@ const nav__links = [
 const Header = () => {
 
     const headerRef = useRef(null)
+    const totalQuantity = useSelector(state => state.cart.totalQuantity)
 
     const menuRef = useRef(null)
 
@@ -83,7 +85,7 @@ const Header = () => {
                             </span>
                             <span className="cart__icon">
                                 <i class="ri-shopping-bag-line"></i>
-                                <span className="badge">i</span>
+                                <span className="badge">{totalQuantity}</span>
                             </span>
                             <span>
                                 <motion.img whileTap={{scale: 1.2}} src={userIcon} alt="user_icon" />
