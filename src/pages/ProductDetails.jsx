@@ -7,6 +7,9 @@ import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/CommonSection";
 import { motion } from "framer-motion";
 import ProductsList from "../components/UI/ProductsList";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../redux/slices/cartSlice";
+import { toast } from "react-toastify";
 
 import "../styles/product-details.css";
 
@@ -16,6 +19,7 @@ const ProductDetails = () => {
     const [tab, setTab] = useState("desc")
     const reviewUser = useRef("")
     const reviewMsg = useRef("")
+    const dispatch = useDispatch()
 
     const [rating, setRating] = useState(null)
     const {id} = useParams()
@@ -39,6 +43,19 @@ const ProductDetails = () => {
 
         const reviewUserName = reviewUser.current.value
         const reviewUserMsg = reviewMsg.current.value
+    };
+
+    const addToCart = () => {
+        dispatch(
+            cartActions.addItem({
+                id,
+                image: imgUrl,
+                productName,
+                price,
+            })
+        )
+
+        toast.success("Product added successfully")
     }
 
     return (
@@ -83,7 +100,7 @@ const ProductDetails = () => {
                                 </div>
                                 <p className="mt-3">{shortDesc}</p>
 
-                                <motion.button whileTap={{scale: 1.2}} className="buy__btn">Add to Cart</motion.button>
+                                <motion.button whileTap={{scale: 1.2}} className="buy__btn" onClick={addToCart}>Add to Cart</motion.button>
                             </div>
                         </Col>
                     </Row>
