@@ -31,18 +31,22 @@ const Cart = () => {
                                         <th>Title</th>
                                         <th>Price</th>
                                         <th>Qty</th>
-                                        <th>Delete</th>
+                                        <motion.th whileTap={{scale: 1.2}}>Delete</motion.th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td> <img src={tdImg} alt="" /> </td>
-                                        <td>Modern Arm</td>
-                                        <td>$299</td>
-                                        <td>2px</td>
-                                        <td><i class="ri-delete-bin-line"></i></td>
-                                    </tr>
+                                    {
+                                        cartItems.map((item, index) => (
+                                            <tr>
+                                                <td> <img src={item.imgUrl} alt="" /> </td>
+                                                <td>{item.productName}</td>
+                                                <td>${item.price}</td>
+                                                <td>{item.quantity}px</td>
+                                                <td><i class="ri-delete-bin-line"></i></td>
+                                            </tr>
+                                        ))
+                                    }
                                 </tbody>
                             </table>
                             )
