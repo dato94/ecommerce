@@ -82,32 +82,26 @@
     height: 30px;
     cursor: pointer;
     border-radius: 50%;
+    margin-top: 10px;
 }
 
 .nav__icons .profile {
+    display: flex;
     position: relative;
     z-index: 9;
 }
 
 .nav__icons .profile .profile__actions {
-    position: absolute;
-    top: 98%;
-    left: 0;
-    width: 150px;
+    width: 100px;
     z-index: 10;
-    padding: 15px;
+    margin-left: 10px;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    background: var(--card-bg-01);
-    line-height: 30px;
-    display: none;
+    flex-direction: column; 
+    line-height: 30px;   
     cursor: pointer;
 }
 
-.show__profileActions {
-    display: block;
-}
 
 .mobile__menu {
     font-size: 1.3rem;
